@@ -1,0 +1,92 @@
+body {
+    background: url(/images/image-sky-1.jpg);
+    background-position-x: 20%;
+    background-position-y: 50%;
+}
+
+.card {
+    border-radius: 15px;
+    max-width: 900px;
+    margin: 30px auto;
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.color-input {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.country {
+    color: black;
+    font-size: 50px;
+    font-family: M PLUS Code Latin;
+}
+
+.col-temperature {
+    font-family: M PLUS Code Latin;
+    color: black;
+}
+
+#tempActual {
+    font-size: 75px;
+    position: relative;
+    padding-right: 0px;
+    margin-left: 10%;
+}
+
+#celsius {
+    font-size: 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#fahrenheit {
+    font-size: 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.units {
+    position: relative;
+    padding-left: 0px;
+    font-weight: bold;
+}
+
+#celsius:hover {
+    text-decoration: underline;
+}
+
+#fahrenheit:hover {
+    text-decoration: underline;
+}
+
+.weather {
+    width: 150px;
+}
+
+.detailWeather {
+    font-size: 15px;
+    font-weight: lighter;
+}
+
+.phrase {
+    font-size: 25px;
+    font-family: Griffy;
+}
+
+.temperatureGrid {
+    color: black;
+    font-size: 15px;
+    font-family: M PLUS Code Latin;
+    font-weight: lighter;
+}
+
+.day {
+    font-size: 24px;
+    font-weight: bold;
+    font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.principalW {
+    text-align: left;
+    display: inline-block;
+}

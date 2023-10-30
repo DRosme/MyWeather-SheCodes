@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital@1&family=Griffy&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=M+PLUS+Code+Latin:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="/src/style.css" />
+
+    <script
+      src="https://kit.fontawesome.com/99e5a6a478.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="card text-center">
+      <form class="search" id="form-search-city">
+        <div class="card-header">🌦️ Weather 🌤️</div>
+        <div class="card-body">
+          <div class="container mt-5">
+            <div class="input-group">
+              <input
+                type="text"
+                id="search-city"
+                class="form-control color-input"
+                placeholder="Search your city..."
+                aria-label="Search"
+                aria-describedby="basic-addon2"
+              />
+              <div class="input-group-append">
+                <button class="input-group-text">
+                  Search
+                  <i type="submit" class="btn fa-solid fa-magnifying-glass"></i>
+                </button>
+              </div>
+              <button type="button" id="bCurrent" class="input-group-text">
+                Current
+                <i class="btn fa-solid fa-temperature-high"> </i>
+              </button>
+            </div>
+          </div>
+
+          <div class="container mt-5">
+            <div class="row"></div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <h1 class="country" id="country-search">Lima</h1>
+              <h2 id="timeNow" class="detailWeather">D</h2>
+              <h2 class="detailWeather">Max: 24°C Min: 3°C</h2>
+              <h2 class="detailWeather">Humidity : 55%</h2>
+            </div>
+            <div class="col">
+              <div class="row">
+                <div class="col sun">
+                  <img class="weather" src="images/weather.svg" />
+                </div>
+                <div class="col col-temperature">
+                  <div class="row">
+                    <div class="col" id="tempActual">18</div>
+                    <div class="units col">
+                      <a href="#" id="celsius">°C</a> |
+                      <a href="#" id="fahrenheit">°F</a>
+                    </div>
+                  </div>
+
+                  <h3 class="phrase">What a beautiful day!</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr />
+          <div class="row">
+            <div class="row">
+              <div class="col day">Wed</div>
+              <div class="col day">Thurs</div>
+              <div class="col day">Fri</div>
+              <div class="col day">Sat</div>
+              <div class="col day">Sun</div>
+              <div class="col day">Mon</div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <img class="weatherIcon" src="images/rain.svg" />
+                <h1 class="temperatureGrid">8°C</h1>
+              </div>
+              <div class="col">
+                <img class="weatherIcon" src="images/sun.svg" />
+                <h1 class="temperatureGrid">14°C</h1>
+              </div>
+              <div class="col">
+                <img class="weatherIcon" src="images/sun.svg" />
+                <h1 class="temperatureGrid">16°C</h1>
+              </div>
+              <div class="col">
+                <img class="weatherIcon" src="images/rain.svg" />
+                <h1 class="temperatureGrid">5°C</h1>
+              </div>
+              <div class="col">
+                <img class="weatherIcon" src="images/rain.svg" />
+                <h1 class="temperatureGrid">7°C</h1>
+              </div>
+              <div class="col">
+                <img class="weatherIcon" src="images/sun.svg" />
+                <h1 class="temperatureGrid">26°C</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <div class="card-footer text-body-secondary">
+        Creating by Diana Quiroga
+      </div>
+    </div>
+  </body>
+  <script src="/src/index.js"></script>
+</html>
