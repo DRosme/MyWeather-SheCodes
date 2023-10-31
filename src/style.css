@@ -36,31 +36,40 @@ body {
 #celsius {
     font-size: 15px;
     text-decoration: none;
-    font-weight: bold;
+    color: #3d7b80;
+    
 }
 
 #fahrenheit {
     font-size: 15px;
     text-decoration: none;
-    font-weight: bold;
+    color: #3d7b80;
 }
 
 .units {
     position: relative;
     padding-left: 0px;
-    font-weight: bold;
+
 }
 
 #celsius:hover {
+    font-weight: bold;
     text-decoration: underline;
+    font-size: 18px;
+    
+   
 }
 
 #fahrenheit:hover {
+    font-weight: bold;
     text-decoration: underline;
+    font-size: 18px;
+    
+
 }
 
 .weather {
-    width: 150px;
+    width: 90px;
 }
 
 .detailWeather {
@@ -89,4 +98,22 @@ body {
 .principalW {
     text-align: left;
     display: inline-block;
+}
+
+
+.limitTemp {
+    color:#3d7b80;
+    font-weight: bold;
+}
+
+.colorTime {
+    color: #3d7b80;
+    font-weight: bold;
+
+
+}
+
+.secondaryTemp {
+    color: rgba(61, 123, 128 , 0.5);
+
 }

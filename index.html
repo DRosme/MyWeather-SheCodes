@@ -63,64 +63,45 @@
           </div>
           <div class="row">
             <div class="col">
-              <h1 class="country" id="country-search">Lima</h1>
-              <h2 id="timeNow" class="detailWeather">D</h2>
-              <h2 class="detailWeather">Max: 24°C Min: 3°C</h2>
-              <h2 class="detailWeather">Humidity : 55%</h2>
+              <h1 class="country" id="country-search"></h1>
+              <h2 class="detailWeather">
+                <span class="colorTime" id="timeNow"></span>,
+                <em id="weatherDesc"></em>
+              </h2>
+
+              <h2 class="detailWeather">
+                Min:
+                <span class="limitTemp" id="minTemp-city"></span>°C Max:
+                <span class="limitTemp" id="maxTemp-city"></span>°C
+              </h2>
+              <h2 class="detailWeather">
+                Humidity : <span id="humidity-city"></span> %
+              </h2>
+              <h2 class="detailWeather">
+                Wind:
+                <span class="limitTemp" id="wind"></span> km/h
+              </h2>
             </div>
             <div class="col">
               <div class="row">
                 <div class="col sun">
-                  <img class="weather" src="images/weather.svg" />
+                  <img src="" id="iconW" width="120px" height="120px" alt="" />
                 </div>
                 <div class="col col-temperature">
                   <div class="row">
-                    <div class="col" id="tempActual">18</div>
+                    <div class="col" id="tempActual"></div>
                     <div class="units col">
                       <a href="#" id="celsius">°C</a> |
                       <a href="#" id="fahrenheit">°F</a>
                     </div>
                   </div>
 
-                  <h3 class="phrase">What a beautiful day!</h3>
+                  <h3 class="phrase">
+                    It will be a great day!
+
+                    <img class="weather" src="images/weather.svg" />
+                  </h3>
                 </div>
-              </div>
-            </div>
-          </div>
-          <hr />
-          <div class="row">
-            <div class="row">
-              <div class="col day">Wed</div>
-              <div class="col day">Thurs</div>
-              <div class="col day">Fri</div>
-              <div class="col day">Sat</div>
-              <div class="col day">Sun</div>
-              <div class="col day">Mon</div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <img class="weatherIcon" src="images/rain.svg" />
-                <h1 class="temperatureGrid">8°C</h1>
-              </div>
-              <div class="col">
-                <img class="weatherIcon" src="images/sun.svg" />
-                <h1 class="temperatureGrid">14°C</h1>
-              </div>
-              <div class="col">
-                <img class="weatherIcon" src="images/sun.svg" />
-                <h1 class="temperatureGrid">16°C</h1>
-              </div>
-              <div class="col">
-                <img class="weatherIcon" src="images/rain.svg" />
-                <h1 class="temperatureGrid">5°C</h1>
-              </div>
-              <div class="col">
-                <img class="weatherIcon" src="images/rain.svg" />
-                <h1 class="temperatureGrid">7°C</h1>
-              </div>
-              <div class="col">
-                <img class="weatherIcon" src="images/sun.svg" />
-                <h1 class="temperatureGrid">26°C</h1>
               </div>
             </div>
           </div>

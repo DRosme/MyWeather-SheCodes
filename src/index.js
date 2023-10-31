@@ -34,22 +34,66 @@ let countrySearch = document.querySelector("#country-search");
 
 let global = 0; //to save the variable temperature (global)
 
+
+function setIcon(code) {
+  let urlIcon = `https://openweathermap.org/img/wn/${code}@2x.png`;
+  document.querySelector("#iconW").src=urlIcon;
+  console.log(urlIcon);
+  
+}
+
+
 function displayWeather(response) {
   let currentTemp = response.data.main.temp;
   global = currentTemp;
   let temperature = document.querySelector("#tempActual");
   temperature.innerHTML = Math.round(currentTemp);
+ 
+
+  //Weather description weatherDesc
+  
+  let prmi = response.data.weather;
+  let currentDescp = prmi[0].description;
+  let weatherDesc = document.querySelector("#weatherDesc");
+  weatherDesc.innerHTML = currentDescp;
+  //Humidity
+  let currentHumidity = response.data.main.humidity;
+  let humidity = document.querySelector("#humidity-city");
+  humidity.innerHTML = Math.round(currentHumidity);
+
+  //temp min
+  let currentHMinTemp = response.data.main.temp_min;
+  let minTemp = document.querySelector("#minTemp-city");
+  minTemp.innerHTML = Math.round(currentHMinTemp);
+  //temp max
+  let currentHMaxTemp = response.data.main.temp_max;
+  let maxTemp = document.querySelector("#maxTemp-city");
+  maxTemp.innerHTML = Math.round(currentHMaxTemp);
+
+  console.log(response);
+  //Wind
+  let currentWind= response.data.wind.speed;
+  let wind = document.querySelector("#wind");
+  wind.innerHTML = currentWind;
+
+  setIcon(prmi[0].icon);
 }
 
-formSearch.addEventListener("submit", function (event) {
-  event.preventDefault();
-  let city = searchCity.value;
+function searchCityF(city) {
   countrySearch.innerHTML = city.toUpperCase();
 
   //Serch temperature
   let apiKey = "3c949ba49d38be2487ee278e0d2d4059";
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(url).then(displayWeather);
+}
+
+
+formSearch.addEventListener("submit", function (event) {
+  event.preventDefault();
+  searchCity = document.querySelector("#search-city");
+  let city = searchCity.value;
+  searchCityF(city);
 });
 
 //Changing units. It was possible :)
@@ -74,12 +118,7 @@ linkFahrenheit.addEventListener("click", changeTemperatureF);
 // Code to Current Location
 function displayCurrentWeather(response) {
   let currentCity = response.data.name;
-  let currentTemperature = response.data.main.temp;
-  global = currentTemperature;
-
-  countrySearch.innerHTML = currentCity.toUpperCase();
-  let temperature = document.querySelector("#tempActual");
-  temperature.innerHTML = Math.round(global);
+  searchCityF(currentCity) 
 }
 
 function handlePosition(position) {
@@ -96,3 +135,8 @@ let buttonCurrent = document.querySelector("#bCurrent");
 buttonCurrent.addEventListener("click", function currentLocation() {
   navigator.geolocation.getCurrentPosition(handlePosition);
 });
+
+
+//
+
+searchCityF("Lima");
