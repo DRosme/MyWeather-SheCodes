@@ -117,3 +117,11 @@ body {
     color: rgba(61, 123, 128 , 0.5);
 
 }
+
+a {
+    color: #3d7b80;
+}
+
+a:hover {
+    color: #3d7b80;
+}
