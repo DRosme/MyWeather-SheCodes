@@ -145,7 +145,6 @@ function getForecast(city) {
 }
 
 function displayForecast(response) {
-  console.log(response);
   let forecastW = document.querySelector("#forecast-w");
   let forecastHtml = "";
 
