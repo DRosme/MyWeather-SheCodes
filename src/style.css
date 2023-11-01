@@ -78,7 +78,7 @@ body {
 }
 
 .phrase {
-    font-size: 25px;
+    font-size: 20px;
     font-family: Griffy;
 }
 
@@ -124,4 +124,16 @@ a {
 
 a:hover {
     color: #3d7b80;
+}
+
+.weather-date {
+    font-size: 25px;
+    font-family: M PLUS Code Latin;
+    font-weight: bold;
+}
+
+.weather-forecast {
+    margin-top: 20px;
+    text-align: center;
+
 }

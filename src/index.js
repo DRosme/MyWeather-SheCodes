@@ -38,8 +38,7 @@ let global = 0; //to save the variable temperature (global)
 function setIcon(code) {
   let urlIcon = `https://openweathermap.org/img/wn/${code}@2x.png`;
   document.querySelector("#iconW").src=urlIcon;
-  console.log(urlIcon);
-  
+ 
 }
 
 
@@ -72,7 +71,7 @@ function displayWeather(response) {
 
   console.log(response);
   //Wind
-  let currentWind= response.data.wind.speed;
+  let currentWind = response.data.wind.speed;
   let wind = document.querySelector("#wind");
   wind.innerHTML = currentWind;
 
@@ -80,20 +79,29 @@ function displayWeather(response) {
 }
 
 function searchCityF(city) {
-  countrySearch.innerHTML = city.toUpperCase();
+  countrySearch.innerHTML = city;
 
   //Serch temperature
   let apiKey = "3c949ba49d38be2487ee278e0d2d4059";
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  //let apiKey = "fbef01f4et1b02o0d25c27210a43ef3f";
+  //let url = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
   axios.get(url).then(displayWeather);
 }
 
+function capitalize(s)
+{
+    return s[0].toUpperCase() + s.slice(1);
+}
 
 formSearch.addEventListener("submit", function (event) {
   event.preventDefault();
   searchCity = document.querySelector("#search-city");
   let city = searchCity.value;
-  searchCityF(city);
+  if (city !== "") { 
+    searchCityF(capitalize(city));
+  }
+  
 });
 
 //Changing units. It was possible :)
@@ -117,16 +125,21 @@ linkFahrenheit.addEventListener("click", changeTemperatureF);
 
 // Code to Current Location
 function displayCurrentWeather(response) {
-  let currentCity = response.data.name;
-  searchCityF(currentCity) 
+
+  let currentCity = response.data.city;
+  console.log("other");
+  console.log(response);
+  searchCityF(currentCity);
 }
 
 function handlePosition(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
-  let apiKey = "3c949ba49d38be2487ee278e0d2d4059";
-  let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
-
+  //let apiKey = "3c949ba49d38be2487ee278e0d2d4059";
+  //let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+  let apiKey = "7cc6e139312be6o1cb19t94fd0aeff4a";
+  let url =`https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}&units=metric`;
+  
   axios.get(url).then(displayCurrentWeather);
 }
 
