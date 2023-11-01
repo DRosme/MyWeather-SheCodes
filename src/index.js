@@ -49,7 +49,6 @@ function displayWeather(response) {
   let temperature = document.querySelector("#tempActual");
   temperature.innerHTML = Math.round(currentTemp);
  
-
   //Weather description weatherDesc
   
   let prmi = response.data.weather;
@@ -80,7 +79,7 @@ function displayWeather(response) {
 }
 
 function searchCityF(city) {
-  countrySearch.innerHTML = city.toUpperCase();
+  countrySearch.innerHTML = city;
 
   //Serch temperature
   let apiKey = "3c949ba49d38be2487ee278e0d2d4059";
@@ -88,12 +87,18 @@ function searchCityF(city) {
   axios.get(url).then(displayWeather);
 }
 
+function capitalize(s)
+{
+    return s && s[0].toUpperCase() + s.slice(1);
+}
 
 formSearch.addEventListener("submit", function (event) {
   event.preventDefault();
   searchCity = document.querySelector("#search-city");
   let city = searchCity.value;
-  searchCityF(city);
+  if (city !== ""){
+    searchCityF(capitalize(city));
+  }
 });
 
 //Changing units. It was possible :)
@@ -127,6 +132,8 @@ function handlePosition(position) {
   let apiKey = "3c949ba49d38be2487ee278e0d2d4059";
   let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
 
+  //let apiKey = "7cc6e139312be6o1cb19t94fd0aeff4a";
+  //let apiUrl = https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}&units=imperial;
   axios.get(url).then(displayCurrentWeather);
 }
 
@@ -136,7 +143,27 @@ buttonCurrent.addEventListener("click", function currentLocation() {
   navigator.geolocation.getCurrentPosition(handlePosition);
 });
 
+function displayForecast() {
+  let forecastW = document.querySelector("#forecast-w");
+  let daysA = ["Tue", "Wed", "Thu", "Fri", "Sat"];
+  let forecastHtml = "";
 
-//
+  daysA.forEach(function (day) {
+    forecastHtml = forecastHtml + `
+        <div class="weather-forecast-day">
+          <div class="weather-date">${day}</div>
+          <div class="weather-icon">🌥️</div>
+          <div class="temperatureGrid">
+            <span class="tempMinF"> 7°C</span>
+            <span class="secondaryTemp"> 7°C</span>
+          </div>
+      </div>`;    
+  });
 
+  forecastW.innerHTML = forecastHtml;
+}
+
+
+//default
 searchCityF("Lima");
+displayForecast();
