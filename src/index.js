@@ -172,4 +172,3 @@ function displayForecast(response) {
 
 //default
 searchCityF("Lima");
-displayForecast();
